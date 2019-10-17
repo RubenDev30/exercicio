@@ -1,0 +1,44 @@
+function createRandomArray(){
+
+  var arrayNumber=[];
+
+  for(var i=0; i<10; i++){
+
+    if(i==5){
+   
+      arrayNumber.push(arrayNumber[generateNumber(4)]);
+   
+    }else if(i==6){
+   
+       arrayNumber.push(arrayNumber[arrayNumber.length-1]);
+   
+    }else if(i==7){
+   
+      var goodPosition=0;
+   
+      do{
+   
+         goodPosition=generateNumber(4)
+   
+      }while(arrayNumber[goodPosition]==arrayNumber[i-2])
+   
+       arrayNumber.push(arrayNumber[goodPosition]);
+ 
+   }else{
+   
+   arrayNumber.push(generateNumber(50));
+   
+  }
+ 
+ }
+
+console.log(arrayNumber);
+ 
+}
+
+
+function generateNumber(range){
+
+return Math.floor((Math.random() * range) + 1);
+
+}
